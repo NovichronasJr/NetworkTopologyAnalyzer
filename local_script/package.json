@@ -1,0 +1,18 @@
+{
+  "name": "local_script",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.11",
+    "open": "^8.4.2",
+    "socket.io-client": "^4.8.3"
+  }
+}
