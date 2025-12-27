@@ -17,7 +17,7 @@ export const SocketProvider = ({children})=>{
     const [socket,setSocket] = useState(null);
 
     useEffect(()=>{
-        const connection = io('http://localhost:3001');
+        const connection = io('http://localhost:8001');
         setSocket(connection);
 
         connection.on('connect',()=>{
