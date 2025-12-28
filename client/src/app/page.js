@@ -50,9 +50,7 @@ export default function Home() {
             </thead>
             <tbody>
               {devices.map((device, index) => {
-                const name = device.type === 'gateway'
-                  ? 'Gateway'
-                  : device.name || 'Unknown';
+                const name = device.name === '_gateway'?'Gateway':device.name==='?'?'Unknown':device.name;
                 return (
                   <tr key={device.ip || index} className="bg-gray-800 hover:bg-gray-700 transition">
                     <td className="border border-gray-600 px-4 py-2">{name}</td>
