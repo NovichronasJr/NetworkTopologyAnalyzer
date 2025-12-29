@@ -1,0 +1,72 @@
+
+/* Navbar */
+nav {
+  height: 60px;
+  background: #0b1f33;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  border-bottom: 2px solid #19d5ff55;
+}
+nav .brand {
+  color: #19d5ff;
+  font-size: 22px;
+  font-weight: 600;
+}
+nav button {
+  background: #19d5ff;
+  color: #001a2a;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+nav button:hover {
+  background: #47eaff;
+}
+
+/* Dashboard content */
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Image cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  width: 80%;
+}
+
+.card {
+  background: #0a1933;
+  border: 1px solid #19d5ff44;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 15px;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 12px #19d5ff55;
+}
+
+.card img {
+  width: 120px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 6px #19d5ff77);
+}
+
+.card h3 {
+  color: #19d5ff;
+  font-size: 18px;
+  margin-bottom: 5px;
+}

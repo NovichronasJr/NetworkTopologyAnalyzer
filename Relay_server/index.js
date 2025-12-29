@@ -56,8 +56,15 @@ io.on('connection',(socket)=>{
     socket.on('LOCAL_DEVICE_SCANNED_RESULTS',({scr_id,devices})=>{
         io.to(map.get(scr_id)).emit('SCAN_RESULTS',{devices:devices});
     })
-})
 //=================================================================================================================================
+
+    socket.on('disconnect',()=>{
+        map.delete(socket.id);
+        console.log(map);
+    })
+
+})
+
 
 
 app.get('/',(req,res)=>{
