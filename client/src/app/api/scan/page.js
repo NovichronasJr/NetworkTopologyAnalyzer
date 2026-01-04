@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-import { useSocket } from "@/context/socketContext";
+import { useSocket } from "../../../context/socketContext";
 
 export default function Home() {
   const socket = useSocket();
