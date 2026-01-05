@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { handleLoginSuccess } from "../actions";
 import { Mail, Lock, Loader2, ArrowRight } from "lucide-react"; // Optional: npm i lucide-react
+import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -133,9 +134,9 @@ export default function LoginPage() {
           <div className="mt-8 pt-6 border-t border-white/5 text-center">
             <p className="text-sm text-gray-500">
               Don&apos;t have an account?{" "}
-              <a href="/register" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
+              <Link href={'/auth/signup'} className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
                 Create one now
-              </a>
+              </Link>
             </p>
           </div>
         </div>

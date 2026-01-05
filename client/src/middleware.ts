@@ -8,7 +8,7 @@ export const config = {
     '/api/scan',
     '/api/profile',
     '/api/history',
-    '/((?!_next/static|_next/image|favicon.ico|auth/login|.*\\.(?:png|jpg|jpeg|gif|svg)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|auth/login|auth/signup|.*\\.(?:png|jpg|jpeg|gif|svg)$).*)',
   ],
 }
 

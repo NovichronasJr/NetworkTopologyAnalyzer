@@ -24,7 +24,7 @@ app.get('/',(req,res)=>{
 })
 
 // create user route....
-app.post('/user',async (req,res)=>{
+app.post('/register-user',async (req,res)=>{
     // const user_name = "Test"
     // const user_email = "test@gmail.com"
     // const password = "test@123456"
@@ -34,11 +34,14 @@ app.post('/user',async (req,res)=>{
     //     user_email,
     //     password
     // })
-
-    const response = await user_model.create(req.body);
-    if(response.length > 0) return res.status(200).json({message:'ok'});
-    else return res.status(500).json({message:'error'})
-    
+    try{
+        const response = await user_model.create(req.body);
+        return res.status(200).json({message:'ok',response});
+    }catch(err)
+    {
+        return res.status(500).json({message:err.message});
+    }
+     
 })
 
 // login user route (JWT and session etc needs to be implemented)
