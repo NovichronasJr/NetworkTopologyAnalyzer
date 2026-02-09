@@ -50,3 +50,6 @@ coverage/
 ##################################
 .gitmodules
 .git/modules/
+
+local_script_python/__pycache__
+local_script_python/myenv

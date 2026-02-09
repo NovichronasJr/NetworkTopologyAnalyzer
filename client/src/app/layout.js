@@ -31,7 +31,7 @@ export default async function RootLayout({ children }) {
   console.log(userName + userEmail);
   return (
     <StrictMode>
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

@@ -1,0 +1,83 @@
+{
+    "directed": false,
+    "multigraph": false,
+    "graph": {
+        "real_loops": []
+    },
+    "nodes": [
+        {
+            "discovered_by": "arp",
+            "connection_type": "wifi",
+            "mac_address": "ec:a2:a0:d6:ca:30",
+            "role": "gateway",
+            "id": "192.168.1.1"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "86:bb:ae:11:6a:35",
+            "id": "192.168.1.5"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "c6:ce:e4:bf:22:c8",
+            "id": "192.168.1.3"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "ca:d9:d4:07:9c:e3",
+            "id": "192.168.1.6"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "be:bf:81:99:fd:ac",
+            "id": "192.168.1.9"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "ba:5c:35:7f:06:0d",
+            "id": "192.168.1.12"
+        },
+        {
+            "role": "implicit-l2",
+            "discovered_by": "inference",
+            "id": "L2_SWITCH_AP"
+        }
+    ],
+    "edges": [
+        {
+            "relation": "uplink",
+            "source": "192.168.1.1",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.5",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.3",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.6",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.9",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.12",
+            "target": "L2_SWITCH_AP"
+        }
+    ]
+}

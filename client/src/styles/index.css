@@ -9,10 +9,53 @@ nav {
   padding: 0 25px;
   border-bottom: 2px solid #19d5ff55;
 }
+
 nav .brand {
   color: #19d5ff;
   font-size: 22px;
   font-weight: 600;
+  text-shadow: 0 0 10px rgba(25, 213, 255, 0.3);
+}
+
+.glow-orange {
+  box-shadow: 0 0 10px rgba(251, 146, 60, 0.6);
+}
+
+.glow-green {
+  box-shadow: 0 0 12px rgba(22, 163, 74, 0.8);
+}
+
+.glow-box-orange {
+  box-shadow: 0 0 15px rgba(251, 146, 60, 0.15);
+}
+
+.glow-box-orange:hover {
+  box-shadow: 0 0 20px rgba(251, 146, 60, 0.25);
+}
+
+.glow-box-green {
+  box-shadow: 0 0 15px rgba(22, 163, 74, 0.15);
+}
+
+.glow-box-green:hover {
+  box-shadow: 0 0 20px rgba(22, 163, 74, 0.25);
+}
+
+.glow-box-red {
+  box-shadow: 0 0 15px rgba(220, 38, 38, 0.2);
+}
+
+.glow-box-red:hover {
+  box-shadow: 0 0 25px rgba(220, 38, 38, 0.4);
+}
+
+
+nav button:hover {
+  transform: translateY(-1px);
+}
+
+nav button:active {
+  transform: translateY(0);
 }
 nav button {
   background: #19d5ff;

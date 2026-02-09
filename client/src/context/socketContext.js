@@ -15,6 +15,9 @@ export const useSocket = ()=>{
 
 export const SocketProvider = ({children})=>{
     const [socket,setSocket] = useState(null);
+    const [ip_addr,set_ipaddr] = useState("");
+    const [inf,setInf] = useState("");
+
 
     useEffect(()=>{
         const connection = io('http://localhost:8001');
@@ -28,6 +31,15 @@ export const SocketProvider = ({children})=>{
             console.log('disconnected from the server..');
         })
 
+        connection.on('NETWORK_DETAILS',({net_details})=>{
+            const {local_ip,active_interface} = net_details[0];
+            // console.log(net_details);
+            // console.log(local_ip);
+            // console.log(active_interface);
+            set_ipaddr(local_ip);
+            setInf(active_interface);
+        })
+
         return ()=>{
             connection.disconnect();
         }
@@ -35,7 +47,7 @@ export const SocketProvider = ({children})=>{
 
     return(
     
-            <socketContext.Provider value={socket}>
+            <socketContext.Provider value={{socket,ip_addr,inf}}>
                 {children}
             </socketContext.Provider>
     

@@ -9,7 +9,6 @@ export default function DashBoard() {
         <>
             <div className="container w-full min-h-[700px] mx-auto">
                 <div className="cards">
-
                     <Link href={'/api/profile'} prefetch={false}><div className="card flex flex-col justify-center items-center" >
                         <Image src={"/user.png"} width={100} height={100} alt="User Profile"/>
                             <h3>User Profile</h3>
@@ -25,7 +24,12 @@ export default function DashBoard() {
                         <h3>Scan History</h3>
                     </div></Link>
 
+                    <Link href={'/api/ether'} prefetch={false}><div className="card flex flex-col justify-center items-center" >
+                        <Image src={"/ethernet.png"} width={100} height={100} alt="Scan History"/>
+                        <h3>Ethernet Scan</h3>
+                    </div></Link>
                 </div>
+
             </div>
         </>
     )
