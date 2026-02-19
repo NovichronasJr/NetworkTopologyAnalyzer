@@ -24,3 +24,34 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* --- Global Webpage Scrollbar Styling --- */
+
+/* 1. The width of the entire scrollbar track */
+::-webkit-scrollbar {
+  width: 10px;               /* Vertical scrollbar width */
+  height: 10px;              /* Horizontal scrollbar height */
+}
+
+/* 2. The background track (the empty part) */
+::-webkit-scrollbar-track {
+  background: #06121f;       /* Matches your deep navy background */
+}
+
+/* 3. The draggable handle (the "Thumb") */
+::-webkit-scrollbar-thumb {
+  background: #19d5ff22;     /* Subtle cyan at rest */
+  border-radius: 20px;       /* Smooth rounded edges */
+  border: 2px solid #06121f; /* Creates a "floating" gap effect */
+  transition: all 0.3s ease;
+}
+
+/* 4. Hover effect on the handle */
+::-webkit-scrollbar-thumb:hover {
+  background: #19d5ff44;     /* Brighter cyan when user interacts */
+}
+
+/* Firefox Support (Standardized properties) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #19d5ff22 #06121f;
+}

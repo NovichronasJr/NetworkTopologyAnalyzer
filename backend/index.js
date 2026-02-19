@@ -206,6 +206,60 @@ app.get('/api/history/ethernet/:email',async(req,res)=>{
     }
 })
 
+// --- DUMMY DATA FOR ETHERNET CONFIGS ---
+// --- Backend: index.js / Ethernet Controller ---
+
+let dummyConfigs = [
+    {
+      _id: "cfg_999",
+      orgName: "HQ - Core Infrastructure",
+      targetIps: "10.0.0.1, 10.0.0.254, 192.168.1.1", // Multiple seed IPs
+      snmpVersion: "v3",
+      username: "snmp_admin",
+      isRecursive: true,
+      resolveHostnames: true,
+      useLLDP: true,
+      useCDP: true,
+      user_email: "test@gmail.com"
+    },
+    {
+      _id: "cfg_777",
+      orgName: "Branch Office - NY",
+      targetIps: "172.16.50.1", // Single seed IP
+      snmpVersion: "v2c",
+      community: "readonly_public",
+      isRecursive: false,
+      resolveHostnames: true,
+      useLLDP: true,
+      useCDP: false,
+      user_email: "test@gmail.com"
+    }
+  ];
+  
+  // ... REST OF THE GET/POST/PUT ROUTES ...
+  // GET: Fetch dummy configurations
+  app.get('/api/ethernet/configs/:email', (req, res) => {
+      // We return the dummy data regardless of the email for now
+      // In the real version, you'd do: await Model.find({ user_email: req.params.email })
+      return res.status(200).json(dummyConfigs);
+  });
+  
+  // POST: Create a new dummy configuration
+  app.post('/api/ethernet/configs', (req, res) => {
+      const newConfig = { ...req.body, _id: Date.now().toString() };
+      dummyConfigs.push(newConfig);
+      return res.status(201).json(newConfig);
+  });
+  
+  // PUT: Update a dummy configuration
+  app.put('/api/ethernet/configs/:id', (req, res) => {
+      const { id } = req.params;
+      dummyConfigs = dummyConfigs.map(c => c._id === id ? { ...req.body, _id: id } : c);
+      return res.status(200).json({ message: "Updated successfully" });
+  });
+
+
+
 app.listen(PORT,()=>{
     console.log(`backend is listening at :: http://localhost:${PORT}`);
 })

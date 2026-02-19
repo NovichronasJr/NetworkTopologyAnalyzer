@@ -97,6 +97,17 @@ socket.on('LOCAL_DEVICE_SCANNED_RESULTS', ({ scr_id, devices }) => {
 });
 //=================================================================================================================================
 
+socket.on("INITIATE_ETH_SCAN",()=>{
+    console.log("Relay_server : attempt to initiate scan :: ",map.get(socket.id));
+    let scr_id = map.get(socket.id);
+    io.to(scr_id).emit("ETH_SCAN");
+})
+
+socket.on('ETH_SCAN_RESULTS',({devices})=>{
+    let cli_id = map.get(socket.id);
+    io.to(cli_id).emit('ETH_DEVICES',{devices:devices});
+})
+
     socket.on('disconnect',()=>{
         map.delete(socket.id);
         console.log(map);

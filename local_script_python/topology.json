@@ -6,78 +6,1633 @@
     },
     "nodes": [
         {
-            "discovered_by": "arp",
-            "connection_type": "wifi",
-            "mac_address": "ec:a2:a0:d6:ca:30",
             "role": "gateway",
+            "connection_type": "ethernet",
+            "status": "online",
+            "discovered_by": "arp",
+            "mac_address": "f4:ee:08:1e:65:f1",
+            "id": "192.168.0.3"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e4:54:e8:af:12:0b",
+            "status": "online",
+            "id": "192.168.0.2"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "cc:32:e5:08:0d:e6",
+            "status": "online",
+            "id": "192.168.0.4"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "00:17:c8:0b:c3:a9",
+            "status": "online",
+            "id": "192.168.0.6"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "40:9b:cd:4f:ca:10",
+            "status": "online",
+            "id": "192.168.0.1"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "a0:8c:fd:86:17:c8",
+            "status": "online",
+            "id": "192.168.0.26"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "c0:a0:bb:24:e6:28",
+            "status": "online",
+            "id": "192.168.0.50"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "00:17:61:12:50:6a",
+            "status": "online",
+            "id": "192.168.0.52"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "20:88:10:8f:3d:74",
+            "status": "online",
+            "id": "192.168.0.53"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "00:17:61:12:50:b9",
+            "status": "online",
+            "id": "192.168.0.54"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "48:ee:0c:7c:20:38",
+            "status": "online",
+            "id": "192.168.0.5"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "18:c0:4d:7e:56:65",
+            "status": "online",
+            "id": "192.168.0.95"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:d5:5e:07:61:3d",
+            "status": "online",
+            "id": "192.168.0.119"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e4:54:e8:a9:0a:d7",
+            "status": "online",
+            "id": "192.168.0.120"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:d5:5e:07:19:d8",
+            "status": "online",
+            "id": "192.168.0.121"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "38:d5:47:b8:da:9e",
+            "status": "offline",
+            "id": "192.168.0.122"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "38:d5:47:b8:da:8a",
+            "status": "online",
+            "id": "192.168.0.123"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "38:d5:47:b8:d2:08",
+            "status": "online",
+            "id": "192.168.0.124"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "38:d5:47:b8:d1:e2",
+            "status": "online",
+            "id": "192.168.0.125"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "04:0e:3c:2f:87:3e",
+            "status": "online",
+            "id": "192.168.0.126"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "04:0e:3c:2f:85:f5",
+            "status": "online",
+            "id": "192.168.0.127"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "04:0e:3c:30:53:20",
+            "status": "online",
+            "id": "192.168.0.128"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "04:0e:3c:2f:87:06",
+            "status": "online",
+            "id": "192.168.0.129"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e4:54:e8:a9:06:f0",
+            "status": "online",
+            "id": "192.168.0.130"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e4:54:e8:af:12:44",
+            "status": "online",
+            "id": "192.168.0.131"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "8c:ec:4b:d6:5d:28",
+            "status": "online",
+            "id": "192.168.0.132"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "04:0e:3c:30:53:1f",
+            "status": "online",
+            "id": "192.168.0.133"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "f4:4d:30:c4:41:4f",
+            "status": "online",
+            "id": "192.168.0.140"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "dc:ef:09:e5:c6:e8",
+            "status": "online",
+            "id": "192.168.0.200"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "a0:63:91:98:92:68",
+            "status": "online",
+            "id": "192.168.0.236"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "a0:8c:fd:84:7a:42",
+            "status": "online",
+            "id": "192.168.0.252"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "b4:3d:08:71:9e:00",
+            "status": "online",
             "id": "192.168.1.1"
         },
         {
             "discovered_by": "arp",
             "connection_type": "ethernet",
-            "mac_address": "86:bb:ae:11:6a:35",
-            "id": "192.168.1.5"
+            "mac_address": "78:98:e8:31:bc:18",
+            "status": "online",
+            "id": "192.168.1.10"
         },
         {
             "discovered_by": "arp",
             "connection_type": "ethernet",
-            "mac_address": "c6:ce:e4:bf:22:c8",
-            "id": "192.168.1.3"
+            "mac_address": "58:38:79:3d:b8:53",
+            "status": "online",
+            "id": "192.168.1.11"
         },
         {
             "discovered_by": "arp",
             "connection_type": "ethernet",
-            "mac_address": "ca:d9:d4:07:9c:e3",
-            "id": "192.168.1.6"
-        },
-        {
-            "discovered_by": "arp",
-            "connection_type": "ethernet",
-            "mac_address": "be:bf:81:99:fd:ac",
-            "id": "192.168.1.9"
-        },
-        {
-            "discovered_by": "arp",
-            "connection_type": "ethernet",
-            "mac_address": "ba:5c:35:7f:06:0d",
+            "mac_address": "78:98:e8:31:bb:e4",
+            "status": "online",
             "id": "192.168.1.12"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "cc:32:e5:08:0d:b4",
+            "status": "online",
+            "id": "192.168.1.16"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "18:0f:76:c4:21:4b",
+            "status": "online",
+            "id": "192.168.1.18"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "04:0e:3c:2e:eb:cd",
+            "status": "online",
+            "id": "192.168.1.93"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c9:b6",
+            "status": "online",
+            "id": "192.168.1.162"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c8:75",
+            "status": "online",
+            "id": "192.168.1.165"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:d5:5e:07:19:ad",
+            "status": "online",
+            "id": "192.168.1.166"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "dc:fe:07:2e:8e:d5",
+            "status": "online",
+            "id": "192.168.1.167"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e9:1a:9b",
+            "status": "online",
+            "id": "192.168.1.168"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "d8:f2:ca:44:41:a7",
+            "status": "offline",
+            "id": "192.168.1.20"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e9:18:26",
+            "status": "online",
+            "id": "192.168.1.169"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e9:18:24",
+            "status": "online",
+            "id": "192.168.1.170"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e9:18:25",
+            "status": "online",
+            "id": "192.168.1.171"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e9:1c:01",
+            "status": "online",
+            "id": "192.168.1.172"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e9:17:9e",
+            "status": "online",
+            "id": "192.168.1.173"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "dc:fe:07:2e:82:37",
+            "status": "online",
+            "id": "192.168.1.178"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:73:e7:15:aa:b7",
+            "status": "online",
+            "id": "192.168.1.179"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "dc:fe:07:2e:82:32",
+            "status": "online",
+            "id": "192.168.1.181"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:d5:5e:07:55:82",
+            "status": "online",
+            "id": "192.168.1.182"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "dc:fe:07:2e:91:52",
+            "status": "online",
+            "id": "192.168.1.183"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:73:e7:15:b3:09",
+            "status": "online",
+            "id": "192.168.1.184"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:73:e7:15:ac:75",
+            "status": "online",
+            "id": "192.168.1.185"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:73:e7:15:aa:61",
+            "status": "online",
+            "id": "192.168.1.187"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:73:e7:15:aa:c9",
+            "status": "online",
+            "id": "192.168.1.188"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:73:e7:15:aa:dc",
+            "status": "online",
+            "id": "192.168.1.189"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:cb:ad",
+            "status": "online",
+            "id": "192.168.1.201"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c7:57",
+            "status": "online",
+            "id": "192.168.1.224"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c6:a5",
+            "status": "online",
+            "id": "192.168.1.241"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "dc:ef:09:e5:c7:38",
+            "status": "online",
+            "id": "192.168.2.6"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:ca:61",
+            "status": "online",
+            "id": "192.168.1.151"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c8:76",
+            "status": "online",
+            "id": "192.168.1.154"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "00:20:6b:bf:11:a2",
+            "status": "online",
+            "id": "192.168.2.100"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:84:8e:68",
+            "status": "online",
+            "id": "192.168.2.134"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "7e:7f:34:cc:63:9f",
+            "status": "online",
+            "id": "192.168.1.209"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "74:85:2a:21:27:d9",
+            "status": "online",
+            "id": "192.168.2.151"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:d5:5e:b9:c5:6c",
+            "status": "online",
+            "id": "192.168.2.154"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "10:ff:e0:af:a5:bd",
+            "status": "online",
+            "id": "192.168.2.160"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "wifi",
+            "mac_address": "00:e0:4c:51:30:36",
+            "status": "online",
+            "id": "192.168.2.161"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "88:ae:dd:38:5e:eb",
+            "status": "online",
+            "id": "192.168.2.170"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "00:80:91:da:b9:d2",
+            "status": "online",
+            "id": "192.168.2.165"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "74:85:2a:21:28:6e",
+            "status": "online",
+            "id": "192.168.2.190"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:ca:61",
+            "status": "online",
+            "id": "192.168.2.210"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "f4:4d:30:42:8a:b8",
+            "status": "online",
+            "id": "192.168.3.34"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "dc:ea:e7:70:a9:fb",
+            "status": "online",
+            "id": "192.168.3.200"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c7:d2",
+            "status": "online",
+            "id": "192.168.3.239"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "00:68:eb:c5:3c:5f",
+            "status": "online",
+            "id": "192.168.4.101"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "00:68:eb:c4:f1:69",
+            "status": "offline",
+            "id": "192.168.4.110"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "dc:fe:07:1b:a9:e7",
+            "status": "online",
+            "id": "192.168.4.153"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "wifi",
+            "mac_address": "00:e0:4c:53:0b:b0",
+            "status": "online",
+            "id": "192.168.4.157"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "68:a3:c4:10:a2:dc",
+            "status": "online",
+            "id": "192.168.4.206"
         },
         {
             "role": "implicit-l2",
             "discovered_by": "inference",
+            "status": "online",
             "id": "L2_SWITCH_AP"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "04:ec:d8:1a:b4:f9",
+            "status": "offline",
+            "id": "192.168.0.212"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c6:a5",
+            "status": "online",
+            "id": "192.168.1.161"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "8c:ec:4b:b5:11:24",
+            "status": "offline",
+            "id": "192.168.6.214"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "60:a4:b7:bb:a8:90",
+            "status": "offline",
+            "id": "192.168.6.241"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "14:eb:b6:30:45:b3",
+            "status": "online",
+            "id": "192.168.6.244"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c6:c4",
+            "status": "offline",
+            "id": "192.168.6.245"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "8c:ec:4b:b5:13:64",
+            "status": "offline",
+            "id": "192.168.7.52"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "74:85:2a:21:28:60",
+            "status": "online",
+            "id": "192.168.7.55"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "20:0b:74:70:09:a3",
+            "status": "offline",
+            "id": "192.168.4.232"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "d8:f2:ca:44:5d:e5",
+            "status": "offline",
+            "id": "192.168.6.203"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:80:6b:44:db:8b",
+            "status": "offline",
+            "id": "192.168.0.43"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "04:0e:3c:30:53:1c",
+            "status": "offline",
+            "id": "192.168.1.227"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c7:d2",
+            "status": "online",
+            "id": "192.168.1.152"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "04:0e:3c:30:6c:24",
+            "status": "online",
+            "id": "192.168.0.208"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c7:40",
+            "status": "online",
+            "id": "192.168.1.150"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c7:93",
+            "status": "online",
+            "id": "192.168.1.153"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c6:c4",
+            "status": "offline",
+            "id": "192.168.1.155"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c7:df",
+            "status": "online",
+            "id": "192.168.1.156"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c6:c6",
+            "status": "online",
+            "id": "192.168.1.157"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:cb:ad",
+            "status": "online",
+            "id": "192.168.1.158"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "00:e0:1b:04:25:eb",
+            "status": "online",
+            "id": "192.168.1.159"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c7:57",
+            "status": "online",
+            "id": "192.168.1.160"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c4:16",
+            "status": "online",
+            "id": "192.168.1.163"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:cb:b1",
+            "status": "online",
+            "id": "192.168.1.164"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "wifi",
+            "mac_address": "88:46:04:30:ae:2b",
+            "status": "offline",
+            "id": "192.168.1.4"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:73:e7:15:b3:09",
+            "status": "online",
+            "id": "192.168.2.244"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "5e:ad:6d:f3:f0:4f",
+            "status": "offline",
+            "id": "192.168.2.237"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:73:e7:15:aa:dc",
+            "status": "online",
+            "id": "192.168.3.232"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:84:8e:68",
+            "status": "online",
+            "id": "192.168.4.201"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:73:e7:15:ac:75",
+            "status": "online",
+            "id": "192.168.4.237"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "92:24:10:74:e1:38",
+            "status": "offline",
+            "id": "192.168.6.207"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "b8:ae:ed:bb:3d:90",
+            "status": "online",
+            "id": "192.168.3.32"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "d8:32:14:c7:71:90",
+            "status": "offline",
+            "id": "192.168.0.254"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "72:b9:25:73:f7:91",
+            "status": "offline",
+            "id": "192.168.1.243"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "8c:ec:4b:b5:0f:a5",
+            "status": "online",
+            "id": "192.168.2.127"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "34:0a:33:cd:d4:30",
+            "status": "offline",
+            "id": "192.168.2.5"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "ea:54:17:34:db:5c",
+            "status": "online",
+            "id": "192.168.3.245"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:69:7a:e4:c6:c6",
+            "status": "offline",
+            "id": "192.168.7.191"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "e0:73:e7:15:aa:61",
+            "status": "online",
+            "id": "192.168.7.193"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "be:0b:5e:a5:3d:b2",
+            "status": "offline",
+            "id": "192.168.7.212"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "d8:12:65:09:e6:39",
+            "status": "offline",
+            "id": "192.168.7.199"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "62:2e:ed:d5:66:ec",
+            "status": "online",
+            "id": "192.168.7.205"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "d2:8b:17:56:d3:f6",
+            "status": "offline",
+            "id": "192.168.7.195"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "32:fc:20:c6:cc:ce",
+            "status": "offline",
+            "id": "192.168.7.198"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "d8:12:65:09:33:9b",
+            "status": "offline",
+            "id": "192.168.1.212"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "66:99:09:cf:9e:07",
+            "status": "offline",
+            "id": "192.168.7.207"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "2a:40:d8:ed:29:93",
+            "status": "offline",
+            "id": "192.168.7.125"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "66:8a:ac:53:e5:2f",
+            "status": "online",
+            "id": "192.168.2.103"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "26:b2:8d:ac:d8:b5",
+            "status": "online",
+            "id": "192.168.3.217"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "72:f1:08:67:81:58",
+            "status": "online",
+            "id": "192.168.1.229"
+        },
+        {
+            "discovered_by": "arp",
+            "connection_type": "ethernet",
+            "mac_address": "1c:61:b4:05:f7:7d",
+            "status": "online",
+            "id": "192.168.7.197"
         }
     ],
     "edges": [
         {
             "relation": "uplink",
+            "source": "192.168.0.3",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.2",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.4",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.6",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.1",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.26",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.50",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.52",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.53",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.54",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.5",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.95",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.119",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.120",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.121",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.122",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.123",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.124",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.125",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.126",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.127",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.128",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.129",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.130",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.131",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.132",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.133",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.140",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.200",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.236",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.0.252",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
             "source": "192.168.1.1",
             "target": "L2_SWITCH_AP"
         },
         {
             "relation": "logical-L2",
-            "source": "192.168.1.5",
+            "source": "192.168.1.10",
             "target": "L2_SWITCH_AP"
         },
         {
             "relation": "logical-L2",
-            "source": "192.168.1.3",
-            "target": "L2_SWITCH_AP"
-        },
-        {
-            "relation": "logical-L2",
-            "source": "192.168.1.6",
-            "target": "L2_SWITCH_AP"
-        },
-        {
-            "relation": "logical-L2",
-            "source": "192.168.1.9",
+            "source": "192.168.1.11",
             "target": "L2_SWITCH_AP"
         },
         {
             "relation": "logical-L2",
             "source": "192.168.1.12",
             "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.16",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.18",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.93",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.162",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.165",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.166",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.167",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.168",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.20",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.169",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.170",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.171",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.172",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.173",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.178",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.179",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.181",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.182",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.183",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.184",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.185",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.187",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.188",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.189",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.201",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.224",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.241",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.2.6",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.151",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.154",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.2.100",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.2.134",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.1.209",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.2.151",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.2.154",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.2.160",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.2.161",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.2.170",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.2.165",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.2.190",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.2.210",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.3.34",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.3.200",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.3.239",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.4.101",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.4.110",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.4.153",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.4.157",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "192.168.4.206",
+            "target": "L2_SWITCH_AP"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.0.212"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.161"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.6.214"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.6.241"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.6.244"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.6.245"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.7.52"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.7.55"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.4.232"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.6.203"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.0.43"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.227"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.152"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.0.208"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.150"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.153"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.155"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.156"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.157"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.158"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.159"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.160"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.163"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.164"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.4"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.2.244"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.2.237"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.3.232"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.4.201"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.4.237"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.6.207"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.3.32"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.0.254"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.243"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.2.127"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.2.5"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.3.245"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.7.191"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.7.193"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.7.212"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.7.199"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.7.205"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.7.195"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.7.198"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.212"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.7.207"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.7.125"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.2.103"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.3.217"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.1.229"
+        },
+        {
+            "relation": "logical-L2",
+            "source": "L2_SWITCH_AP",
+            "target": "192.168.7.197"
         }
     ]
 }
