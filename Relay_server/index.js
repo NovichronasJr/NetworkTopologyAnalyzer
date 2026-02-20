@@ -3,125 +3,72 @@ const http = require('http');
 const {Server} = require('socket.io');
 
 const app = express();
-
 const http_server = http.createServer(app);
-
 const io = new Server(http_server,{
-    cors:{
-        origin:"http://localhost:3000",
-        methods:["GET","POST"]
-    }
+    cors:{ origin:"http://localhost:3000", methods:["GET","POST"] }
 });
 
 const PORT = 8001;
+// We define a static ROOM name. In a multi-user app, this would be the User's Email.
+const SESSION_ROOM = "NOC_SESSION_ROOM"; 
 
-const map = new Map();
-
-let scr_socket_id = null;
-let cli_socket_id = null;
 let local_network = null;
 
 io.on('connection',(socket)=>{
-    console.log("new socket connected "+socket.id);  
-    socket.emit('message',{message:"welcome to the topo"})
+    console.log("New socket connected: " + socket.id);  
     
-//==================================================================================================================================
-// Forming a pair between client and server 
-    socket.on('pair_formation_loc',({loc_id,ip_details})=>{
-        scr_socket_id = loc_id;
-        console.log("srcipt :: " + loc_id);
-        console.log("local_network :: "+ip_details);
+    // 1. Every socket (Script or Client) joins the same Room immediately
+    socket.join(SESSION_ROOM);
+
+    socket.emit('message', {message: "welcome to the topo"});
+    
+    // --- PAIRING (Kept your parameters exactly as requested) ---
+    socket.on('pair_formation_loc', ({loc_id, ip_details}) => {
+        console.log("Script paired: " + loc_id);
         local_network = ip_details;
-    })
+        // Even if the script reconnects, it's already in the SESSION_ROOM
+    });
 
-    socket.on('pair_formation_client',({cli_id})=>{
-        cli_socket_id = cli_id;
-        console.log("client :: " + cli_id);
+    socket.on('pair_formation_client', ({cli_id}) => {
+        console.log("Client paired: " + cli_id);
+        // Push current network details back to the client immediately
+        io.to(SESSION_ROOM).emit('NETWORK_DETAILS', {net_details: local_network});
+    });
 
-        if(scr_socket_id && cli_socket_id)
-        {  
-            map.set(scr_socket_id,cli_socket_id);
-            map.set(cli_socket_id,scr_socket_id);
-        }
+    // --- WIFI SCAN ---
+    socket.on('INITIATE_SCAN', (data) => {
+        // Instead of map.get, we broadcast to the ROOM. 
+        // The Script is in the room, so it will hear this.
+        socket.to(SESSION_ROOM).emit('SCAN_LOCAL_DEVICES');
+    });
 
-        console.log(map);
-        console.log('emitting net details to client------->')
-        io.to(socket.id).emit('NETWORK_DETAILS',{net_details:local_network});
-            
-    })
-//=================================================================================================================================
+    socket.on('LOCAL_DEVICE_SCANNED_RESULTS', ({scr_id, devices}) => {
+        // Forward results to the Client in the room
+        socket.to(SESSION_ROOM).emit('SCAN_RESULTS', {devices: devices});
+    });
 
+    // --- ETHERNET SCAN ---
+    socket.on("INITIATE_ETH_SCAN", () => {
+        socket.to(SESSION_ROOM).emit("ETH_SCAN");
+    });
 
-//==================================================================================================================================
-// Find all the local devices  (client ----> script)     
-    // socket.on('INITIATE_SCAN',({cli_id})=>{
-    //     io.to(map.get(cli_id)).emit('SCAN_LOCAL_DEVICES');
-    // })
-    // socket.on('INITIATE_SCAN',({cli_id})=>{
-    //     io.to(map.get(cli_id)).emit('SCAN_LOCAL_DEVICES');
-    // })
-    // Find all the local devices (client ----> script)     
-socket.on('INITIATE_SCAN', (data) => {
-    // Ignore data.cli_id, use the actual socket.id of the sender
-    const targetScriptId = map.get(socket.id);
-    
-    console.log(`INITIATE_SCAN received from ${socket.id}. Target script: ${targetScriptId}`);
-    
-    if (targetScriptId) {
-        io.to(targetScriptId).emit('SCAN_LOCAL_DEVICES');
-    } else {
-        console.log("Error: This client is not paired with a script!");
-    }
+    socket.on('ETH_SCAN_RESULTS', ({devices}) => {
+        socket.to(SESSION_ROOM).emit('ETH_DEVICES', {devices: devices});
+    });
+
+    // --- THE FIX: INTERFACE CHANGE ---
+    socket.on('INTERFACE_STATE_CHANGE', (data) => {
+        console.log("Relay server :: interface change found :: ", data);
+        // We broadcast to the ROOM. If the client just reconnected, 
+        // as long as it joined the room, it WILL receive this.
+        socket.to(SESSION_ROOM).emit('INTERFACE_STATE_CHANGE', data); 
+    });
+
+    socket.on('disconnect', () => {
+        console.log("Socket disconnected: " + socket.id);
+    });
 });
-// Sending the results of scan to client  (script -----> client)
-    // socket.on('LOCAL_DEVICE_SCANNED_RESULTS',({scr_id,devices})=>{
-    //     io.to(map.get(scr_id)).emit('SCAN_RESULTS',{devices:devices});
-    // })
-    // Inside Relay_server/index.js
 
-// Sending the results of scan to client (script -----> client)
-socket.on('LOCAL_DEVICE_SCANNED_RESULTS', ({ scr_id, devices }) => {
-    // 1. Find the Client ID paired with this Python Script
-    const targetClientId = map.get(socket.id); 
-
-    console.log(`Results received from script ${socket.id}. Forwarding to client ${targetClientId}`);
-
-    if (targetClientId) {
-        // 2. MAKE SURE THIS EVENT NAME MATCHES YOUR FRONTEND!
-        // If your frontend uses socket.on('SCAN_RESULTS'), keep it as 'SCAN_RESULTS'
-        // If your frontend uses socket.on('LOCAL_DEVICE_SCANNED_RESULTS'), change it to that!
-        io.to(targetClientId).emit('SCAN_RESULTS', { devices: devices });
-    } else {
-        console.log("Error: Result received, but no paired client found!");
-    }
+http_server.listen(PORT, () => {
+    console.log(`App listening on http://localhost:${PORT}`);
 });
-//=================================================================================================================================
-
-socket.on("INITIATE_ETH_SCAN",()=>{
-    console.log("Relay_server : attempt to initiate scan :: ",map.get(socket.id));
-    let scr_id = map.get(socket.id);
-    io.to(scr_id).emit("ETH_SCAN");
-})
-
-socket.on('ETH_SCAN_RESULTS',({devices})=>{
-    let cli_id = map.get(socket.id);
-    io.to(cli_id).emit('ETH_DEVICES',{devices:devices});
-})
-
-    socket.on('disconnect',()=>{
-        map.delete(socket.id);
-        console.log(map);
-    })
-
-})
-
-
-
-app.get('/',(req,res)=>{
-    res.status(200).end(`<h1>Welcome to the Relay server</h1>`);
-})
-
-http_server.listen(PORT,()=>{
-    console.log(`app is listening on http://localhost:${PORT}`);
-})
-

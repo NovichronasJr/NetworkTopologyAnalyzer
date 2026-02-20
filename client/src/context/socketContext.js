@@ -40,6 +40,17 @@ export const SocketProvider = ({children})=>{
             setInf(active_interface);
         })
 
+        connection.on('INTERFACE_STATE_CHANGE',({active_interface,ip,status,is_ethernet})=>{
+            console.log("interface :: ",active_interface," ip :: ",ip," status :: ",status," is ethernet :: ",is_ethernet);
+            if(active_interface === "DISCONNECTED")
+            {
+                setInf("");
+            }else{
+                setInf(active_interface);
+            }
+            set_ipaddr(ip);
+        })
+
         return ()=>{
             connection.disconnect();
         }
