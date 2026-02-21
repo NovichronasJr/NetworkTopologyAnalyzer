@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useRouter} from "next/navigation";
 import { motion } from "framer-motion";
 import { handleLoginSuccess } from "../actions";
 import { Mail, Lock, Loader2, ArrowRight } from "lucide-react"; // Optional: npm i lucide-react
@@ -30,7 +30,7 @@ export default function LoginPage() {
       if (response.status === 200) {
         const { token } = response.data;
         await handleLoginSuccess(token);
-        window.location.href = "/";
+        window.location.replace("/");
       }
     } catch (err) {
       if (err.response) {
