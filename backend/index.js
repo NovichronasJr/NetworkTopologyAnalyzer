@@ -3,6 +3,7 @@ const app  = express();
 const connectDB = require('./Connection')
 const user_model = require('./models/UserModel');
 const local_scan_model = require('./models/LocalScanModel');
+const ethernet_scan_model = require('./models/EthernetScanModel');
 const Notes_model = require('./models/NotesModel');
 const CreateToken = require('./CookieManage');
 const multer = require('multer');
@@ -312,6 +313,58 @@ app.post('/api/notes', async (req, res) => {
       res.status(500).json({ 
         success: false, 
         message: 'An error occurred while saving the note.',
+        error: error.message 
+      });
+    }
+  });
+
+
+
+  //ethernet scan save //
+  app.post('/api/ethernet-scans', async (req, res) => {
+    try {
+      const { userEmail, directed, multigraph, graph, nodes, edges } = req.body;
+  
+      // 1. Basic validation
+      if (!userEmail || !nodes || !edges) {
+        return res.status(400).json({ 
+          success: false, 
+          message: 'Missing required fields (userEmail, nodes, or edges).' 
+        });
+      }
+  
+      // 2. Fetch User ObjectId securely
+      const user = await user_model.findOne({ user_email: userEmail });
+      if (!user) {
+        return res.status(404).json({
+          success: false,
+          message: 'User not found in the system.'
+        });
+      }
+  
+      // 3. Construct Document
+      const newScan = new ethernet_scan_model({
+        userId: user._id, 
+        directed: directed || false,
+        multigraph: multigraph || false,
+        graph: graph || { real_loops: [] },
+        nodes: nodes,
+        edges: edges
+      });
+  
+      // 4. Save to Database
+      await newScan.save();
+  
+      res.status(201).json({
+        success: true,
+        message: 'Topology saved successfully!'
+      });
+  
+    } catch (error) {
+      console.error('Error saving topology:', error);
+      res.status(500).json({ 
+        success: false, 
+        message: 'Server error while saving topology.',
         error: error.message 
       });
     }

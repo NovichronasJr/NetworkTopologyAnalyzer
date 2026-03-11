@@ -56,6 +56,11 @@ io.on('connection',(socket)=>{
         socket.to(SESSION_ROOM).emit('ETH_DEVICES', {devices: devices});
     });
 
+    socket.on('STOP_CONTINOUS_SCAN',()=>{
+        console.log("recieved event to stop continous scan");
+        socket.to(SESSION_ROOM).emit('STOP_CONTINOUS_SCAN');
+    });
+
     // --- THE FIX: INTERFACE CHANGE ---
     socket.on('INTERFACE_STATE_CHANGE', (data) => {
         console.log("Relay server :: interface change found :: ", data);
