@@ -55,3 +55,104 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #19d5ff22 #06121f;
 }
+
+/* --- DISTRACTION-FREE DARK MODE FOR REACT QUILL --- */
+
+/* The Toolbar - Floating and sticky */
+.enterprise-quill .ql-toolbar.ql-snow {
+  background-color: #0F172A; 
+  border: 1px solid #1E293B;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* The Workspace */
+.enterprise-quill .ql-container.ql-snow {
+  background-color: transparent;
+  border: none;
+  font-size: 1.125rem; /* 18px - Great for readability */
+  line-height: 1.8;
+  font-family: inherit;
+  color: #CBD5E1; 
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typing Area - Padding at the bottom for scrolling */
+.enterprise-quill .ql-editor {
+  padding: 0 0 8rem 0;
+  flex: 1;
+}
+
+/* Icons - Muted professional gray */
+.enterprise-quill .ql-snow .ql-stroke { stroke: #64748B; transition: all 0.2s ease; }
+.enterprise-quill .ql-snow .ql-fill { fill: #64748B; transition: all 0.2s ease; }
+.enterprise-quill .ql-snow .ql-picker { color: #64748B; transition: all 0.2s ease; font-weight: 500; }
+
+/* Active & Hover States - Indigo */
+.enterprise-quill .ql-snow.ql-toolbar button:hover .ql-stroke,
+.enterprise-quill .ql-snow .ql-toolbar button:hover .ql-stroke,
+.enterprise-quill .ql-snow.ql-toolbar button.ql-active .ql-stroke {
+  stroke: #818CF8; 
+}
+
+.enterprise-quill .ql-snow.ql-toolbar button:hover .ql-fill,
+.enterprise-quill .ql-snow .ql-toolbar button.ql-active .ql-fill {
+  fill: #818CF8;
+}
+
+.enterprise-quill .ql-snow .ql-picker-label:hover {
+  color: #818CF8;
+}
+
+/* Dropdowns */
+.enterprise-quill .ql-snow .ql-picker-options {
+  background-color: #0F172A;
+  border: 1px solid #1E293B;
+  border-radius: 0.375rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  padding: 0.25rem;
+}
+
+.enterprise-quill .ql-snow .ql-picker-item {
+  color: #94A3B8;
+  border-radius: 0.25rem;
+}
+
+.enterprise-quill .ql-snow .ql-picker-item:hover {
+  color: #E2E8F0;
+  background-color: #1E293B;
+}
+
+/* Headers inside the editor */
+.enterprise-quill .ql-editor h1, 
+.enterprise-quill .ql-editor h2, 
+.enterprise-quill .ql-editor h3 {
+  color: #F8FAFC;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Code Blocks */
+.enterprise-quill .ql-editor pre.ql-syntax {
+  background-color: #0B1121;
+  border: 1px solid #1E293B;
+  color: #38BDF8;
+  border-radius: 0.375rem;
+  padding: 1.25rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.875rem;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar { width: 8px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background-color: #1E293B; border-radius: 20px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background-color: #334155; }

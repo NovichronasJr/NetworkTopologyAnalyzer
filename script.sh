@@ -13,5 +13,6 @@ sleep 8
 # 3. Now start the UI and the Python local script
 
 (cd local_script_python && sudo ./myenv/bin/python script.py) &
+(cd local_script_python && sudo "$(which python3)" script.py) &
 
 wait

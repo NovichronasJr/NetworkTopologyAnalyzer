@@ -3,6 +3,7 @@ const app  = express();
 const connectDB = require('./Connection')
 const user_model = require('./models/UserModel');
 const local_scan_model = require('./models/LocalScanModel');
+const Notes_model = require('./models/NotesModel');
 const CreateToken = require('./CookieManage');
 const multer = require('multer');
 const cors = require('cors');
@@ -259,6 +260,62 @@ let dummyConfigs = [
   });
 
 
+  // Make sure to import your model at the top of your file
+// const Notes_model = require('./models/Notes'); 
+
+app.post('/api/notes', async (req, res) => {
+    try {
+      // 1. Extract data from the incoming request body
+      const { userEmail, title, content } = req.body;
+      
+      // 2. Initial Validation: Check if the frontend sent the required fields
+      if (!userEmail || !title || !content) {
+        return res.status(400).json({ 
+          success: false, 
+          message: 'Please provide userEmail, title, and content.' 
+        });
+      }
+  
+      // 3. Find the user in the database
+      const user = await user_model.findOne({ user_email: userEmail });
+      
+      // 4. CRITICAL CHECK: Did we actually find a user?
+      if (!user) {
+        return res.status(404).json({
+          success: false,
+          message: 'User with that email not found.'
+        });
+      }
+  
+      // 5. Extract the MongoDB ObjectId securely
+      const userId = user._id; 
+  
+      // 6. Create a new Note document
+      const newNote = new Notes_model({
+        userId, 
+        title,
+        content 
+      });
+  
+      // 7. Save the document to the database
+      const savedNote = await newNote.save();
+  
+      // 8. Send a success response
+      res.status(201).json({
+        success: true,
+        message: 'Note saved successfully!',
+        note: savedNote
+      });
+  
+    } catch (error) {
+      console.error('Error saving note:', error);
+      res.status(500).json({ 
+        success: false, 
+        message: 'An error occurred while saving the note.',
+        error: error.message 
+      });
+    }
+  });
 
 app.listen(PORT,()=>{
     console.log(`backend is listening at :: http://localhost:${PORT}`);
