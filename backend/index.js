@@ -200,7 +200,9 @@ app.get('/api/history/local/:email', async (req, res) => {
 app.get('/api/history/ethernet/:email',async(req,res)=>{
     const { email } = req.params;
     try {
-        const history = await local_scan_model.find({ user_email: email }).sort({ createdAt: -1 });
+        const user = await user_model.findOne({user_email:email});
+        const history = await ethernet_scan_model.find({ userId: user.id }).sort({ createdAt: -1 });
+        console.log(history)
         return res.status(200).json(history);
     } catch (error) {
         console.log("failed to fetch... ", error.message);
@@ -369,6 +371,71 @@ app.post('/api/notes', async (req, res) => {
       });
     }
   });
+
+
+  // fetch notes
+  // GET all notes for a specific user
+app.get('/api/notes/:userEmail', async (req, res) => {
+  try {
+    const { userEmail } = req.params;
+
+    // 1. Find the user by email to get their ObjectId
+    const user = await user_model.findOne({ user_email: userEmail });
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'User not found.'
+      });
+    }
+
+    const notes = await Notes_model.find({ userId: user._id }).sort({ lastUpdated: -1 }); // Newest first
+
+  
+    res.status(200).json({
+      success: true,
+      notes: notes
+    });
+
+  } catch (error) {
+    console.error('Error fetching notes:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'An error occurred while fetching notes.',
+      error: error.message 
+    });
+  }
+});
+
+// DELETE a specific note by its ID
+app.delete('/api/notes/:noteId', async (req, res) => {
+  try {
+    const { noteId } = req.params;
+
+    // findByIdAndDelete is a built-in Mongoose method
+    const deletedNote = await Notes_model.findByIdAndDelete(noteId);
+
+    if (!deletedNote) {
+      return res.status(404).json({
+        success: false,
+        message: 'Note not found or already deleted.'
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: 'Note deleted successfully.'
+    });
+
+  } catch (error) {
+    console.error('Error deleting note:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'An error occurred while deleting the note.',
+      error: error.message 
+    });
+  }
+});
+
 
 app.listen(PORT,()=>{
     console.log(`backend is listening at :: http://localhost:${PORT}`);

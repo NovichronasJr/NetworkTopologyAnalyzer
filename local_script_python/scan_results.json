@@ -1,0 +1,55 @@
+{
+    "target": "192.168.1.11",
+    "status": "up",
+    "os_match": [],
+    "ports": [
+        {
+            "portid": "135",
+            "protocol": "tcp",
+            "state": "open",
+            "service": "msrpc",
+            "product": "Microsoft Windows RPC",
+            "version": "unknown"
+        },
+        {
+            "portid": "139",
+            "protocol": "tcp",
+            "state": "open",
+            "service": "netbios-ssn",
+            "product": "Microsoft Windows netbios-ssn",
+            "version": "unknown"
+        },
+        {
+            "portid": "445",
+            "protocol": "tcp",
+            "state": "open",
+            "service": "microsoft-ds",
+            "product": "unknown",
+            "version": "unknown"
+        },
+        {
+            "portid": "2179",
+            "protocol": "tcp",
+            "state": "open",
+            "service": "vmrdp",
+            "product": "unknown",
+            "version": "unknown"
+        },
+        {
+            "portid": "5357",
+            "protocol": "tcp",
+            "state": "open",
+            "service": "http",
+            "product": "Microsoft HTTPAPI httpd",
+            "version": "2.0"
+        },
+        {
+            "portid": "8081",
+            "protocol": "tcp",
+            "state": "open",
+            "service": "blackice-icecap",
+            "product": "unknown",
+            "version": "unknown"
+        }
+    ]
+}

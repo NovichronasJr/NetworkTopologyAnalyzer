@@ -18,27 +18,20 @@
             "connection_type": "ethernet",
             "mac_address": "b0:22:7a:89:dc:b3",
             "status": "online",
-            "id": "192.168.0.100"
+            "id": "192.168.0.103"
         },
         {
             "discovered_by": "arp",
             "connection_type": "ethernet",
             "mac_address": "b0:22:7a:89:dc:b3",
             "status": "online",
-            "id": "192.168.0.101"
+            "id": "192.168.0.104"
         },
         {
             "role": "implicit-l2",
             "discovered_by": "inference",
             "status": "online",
             "id": "L2_SWITCH_AP"
-        },
-        {
-            "discovered_by": "arp",
-            "connection_type": "ethernet",
-            "mac_address": "1e:62:e8:0a:fe:8d",
-            "status": "offline",
-            "id": "192.168.0.102"
         }
     ],
     "edges": [
@@ -49,18 +42,13 @@
         },
         {
             "relation": "logical-L2",
-            "source": "192.168.0.100",
+            "source": "192.168.0.103",
             "target": "L2_SWITCH_AP"
         },
         {
             "relation": "logical-L2",
-            "source": "192.168.0.101",
+            "source": "192.168.0.104",
             "target": "L2_SWITCH_AP"
-        },
-        {
-            "relation": "logical-L2",
-            "source": "L2_SWITCH_AP",
-            "target": "192.168.0.102"
         }
     ]
 }

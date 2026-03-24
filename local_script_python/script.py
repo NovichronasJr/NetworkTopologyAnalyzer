@@ -6,6 +6,7 @@ import os
 import netifaces
 import webbrowser
 from scan import find_devices, run_continuous_scan, getCurrent_Network
+from nmap import run_nmap_to_json
 
 # Initialize Socket.io Client
 sio = socketio.Client(logger=False, engineio_logger=False) 
@@ -97,6 +98,50 @@ def on_scan_local_devices():
             print(f"❌ Wifi Scan Error: {e}")
 
     threading.Thread(target=do_scan, daemon=True).start()
+
+import threading
+import json
+import os
+
+# The event name matches what your Node.js relay emits
+@sio.on('NMAP_SCAN')
+def on_nmap_scan(data):
+    # Correctly extract the target_ip from the JSON dictionary payload
+    print("received the nmap scan")
+    target_ip = data.get('target_ip')
+    
+    if not target_ip:
+        print("⚠️ [NMAP] Received scan request without a target IP.")
+        return
+
+    print(f"🎯 [NMAP] Initiating deep scan on {target_ip}...")
+
+    # Define the worker function that will run in the background
+    def scan_and_report():
+        try:
+            # 1. Run the blocking Nmap scan
+            run_nmap_to_json(target_ip)
+            
+            # 2. Read the results from the newly created JSON file
+            file_path = "scan_results.json"
+            if os.path.exists(file_path):
+                with open(file_path, 'r') as f:
+                    scan_data = json.load(f)
+                
+                # 3. Emit the results back to the Relay Server
+                sio.emit('NMAP_RESULTS', {
+                    'target_ip': target_ip, 
+                    'results': scan_data
+                })
+                print(f"✅ [NMAP] Scan complete for {target_ip}. Results sent back to NOC.")
+            else:
+                print("❌ [NMAP] Error: scan_results.json was not generated.")
+                
+        except Exception as e:
+            print(f"❌ [NMAP] Critical error during scan: {e}")
+
+    # Fire off the background thread so Socket.io stays alive!
+    threading.Thread(target=scan_and_report, daemon=True).start()
 
 # # --- MODE B: CONTINUOUS ETHERNET SCAN ---
 # @sio.on('ETH_SCAN')

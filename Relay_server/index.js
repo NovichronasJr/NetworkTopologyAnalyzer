@@ -56,10 +56,22 @@ io.on('connection',(socket)=>{
         socket.to(SESSION_ROOM).emit('ETH_DEVICES', {devices: devices});
     });
 
+    socket.on('INITIATE_NMAP_SCAN',({target_ip})=>{
+        console.log(target_ip + " recieved");
+        socket.to(SESSION_ROOM).emit('NMAP_SCAN',{target_ip:target_ip});
+    })
+
+    socket.on('NMAP_RESULTS', (data) => {
+        console.log(`[Relay] Received NMAP results for ${data.target_ip}. Forwarding to UI...`);
+        socket.to(SESSION_ROOM).emit('NMAP_RESULTS', data);
+    });
+    
     socket.on('STOP_CONTINOUS_SCAN',()=>{
         console.log("recieved event to stop continous scan");
         socket.to(SESSION_ROOM).emit('STOP_CONTINOUS_SCAN');
     });
+
+
 
     // --- THE FIX: INTERFACE CHANGE ---
     socket.on('INTERFACE_STATE_CHANGE', (data) => {

@@ -41,13 +41,29 @@ export default function History() {
     }
   };
 
+  // --- FIXED FILTERING LOGIC ---
   const filteredData = (selectedType === 'local' ? localHistory : ethernetHistory).filter(scan => {
     const searchLower = searchQuery.toLowerCase();
-    const matchesDate = new Date(scan.createdAt).toLocaleString().toLowerCase().includes(searchLower);
-    const matchesDevice = scan.devices.some(dev => 
-      dev.name.toLowerCase().includes(searchLower) || 
-      dev.ip.includes(searchLower)
-    );
+    
+    // 1. Handle timestamp difference (createdAt vs scannedAt)
+    const timestamp = selectedType === 'local' ? scan.createdAt : scan.scannedAt;
+    const matchesDate = timestamp ? new Date(timestamp).toLocaleString().toLowerCase().includes(searchLower) : false;
+
+    // 2. Handle array difference (devices vs nodes)
+    const deviceList = selectedType === 'local' ? (scan.devices || []) : (scan.nodes || []);
+    
+    // 3. Handle object key differences inside the array
+    const matchesDevice = deviceList.some(dev => {
+      if (selectedType === 'local') {
+        return (dev.name?.toLowerCase().includes(searchLower)) || 
+               (dev.ip?.toLowerCase().includes(searchLower));
+      } else {
+        return (dev.id?.toLowerCase().includes(searchLower)) || 
+               (dev.mac_address?.toLowerCase().includes(searchLower)) ||
+               (dev.role?.toLowerCase().includes(searchLower));
+      }
+    });
+
     return matchesDate || matchesDevice;
   });
 
@@ -109,7 +125,6 @@ export default function History() {
                     {type === 'local' ? 'Network' : 'Ethernet'}
                 </h2>
                 
-                {/* ACTIVE Badge */}
                 <AnimatePresence>
                     {selectedType === type && (
                         <motion.span 
@@ -143,7 +158,6 @@ export default function History() {
               <div className="mb-8 relative group">
                 <input 
                   type="text"
-                  // Descriptive Placeholder
                   placeholder="Search by Hostname, IP Address, or System Timestamp..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -155,62 +169,106 @@ export default function History() {
               </div>
 
               <div className="space-y-5 max-h-[60vh] overflow-y-auto pr-4 custom-scrollbar">
-                {filteredData.map((scan) => (
-                  <motion.div 
-                    layout
-                    key={scan._id} 
-                    className="bg-[#0b1f33] border border-[#19d5ff11] rounded-[1.5rem] overflow-hidden"
-                  >
-                    <div 
-                      onClick={() => setExpandedScan(expandedScan === scan._id ? null : scan._id)}
-                      className="p-7 flex justify-between items-center cursor-pointer hover:bg-[#19d5ff08]"
-                    >
-                      <div className="flex items-center gap-8">
-                        <div className="text-3xl font-black text-[#19d5ff] opacity-30">{scan.devices.length.toString().padStart(2, '0')}</div>
-                        <div>
-                          <p className="font-extrabold text-xl tracking-tight text-gray-100 italic uppercase">System Snapshot</p>
-                          <p className="text-xs text-[#19d5ff] font-mono tracking-widest">{new Date(scan.createdAt).toLocaleString()}</p>
-                        </div>
-                      </div>
-                      <motion.div animate={{ rotate: expandedScan === scan._id ? 180 : 0 }}>
-                        <svg className="w-6 h-6 text-[#19d5ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" /></svg>
-                      </motion.div>
-                    </div>
+                {filteredData.map((scan) => {
+                  
+                  // --- FIXED RENDER LOGIC: Extract correct properties ---
+                  const isLocal = selectedType === 'local';
+                  const timestamp = isLocal ? scan.createdAt : scan.scannedAt;
+                  const deviceList = isLocal ? (scan.devices || []) : (scan.nodes || []);
 
-                    <AnimatePresence>
-                      {expandedScan === scan._id && (
-                        <motion.div 
-                          initial={{ height: 0, opacity: 0 }} 
-                          animate={{ height: "auto", opacity: 1 }} 
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.4 }}
-                          className="bg-[#06121f88] border-t border-[#19d5ff11] force-no-scroll"
-                        >
-                          <div className="p-8">
-                            <table className="w-full text-sm text-left">
-                              <thead className="text-[#19d5ff] font-black text-[10px] tracking-[0.2em] border-b border-[#19d5ff22]">
-                                <tr>
-                                  <th className="pb-4">HOST IDENTITY</th>
-                                  <th className="pb-4">IPV4 ADDRESS</th>
-                                  <th className="pb-4 text-right">MAC SIGNATURE</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                {scan.devices.map((dev, i) => (
-                                  <tr key={i} className="border-b border-[#ffffff03] last:border-0 hover:bg-[#19d5ff05]">
-                                    <td className="py-4 text-gray-300 font-semibold">{dev.name}</td>
-                                    <td className="py-4 font-mono text-[#19d5ff]">{dev.ip}</td>
-                                    <td className="py-4 font-mono text-right text-gray-500">{dev.mac}</td>
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </table>
+                  return (
+                    <motion.div 
+                      layout
+                      key={scan._id} 
+                      className="bg-[#0b1f33] border border-[#19d5ff11] rounded-[1.5rem] overflow-hidden"
+                    >
+                      <div 
+                        onClick={() => setExpandedScan(expandedScan === scan._id ? null : scan._id)}
+                        className="p-7 flex justify-between items-center cursor-pointer hover:bg-[#19d5ff08]"
+                      >
+                        <div className="flex items-center gap-8">
+                          {/* Use the dynamically extracted deviceList length */}
+                          <div className="text-3xl font-black text-[#19d5ff] opacity-30">
+                            {deviceList.length.toString().padStart(2, '0')}
                           </div>
+                          <div>
+                            <p className="font-extrabold text-xl tracking-tight text-gray-100 italic uppercase">System Snapshot</p>
+                            {/* Use the dynamically extracted timestamp */}
+                            <p className="text-xs text-[#19d5ff] font-mono tracking-widest">
+                              {timestamp ? new Date(timestamp).toLocaleString() : "Unknown Time"}
+                            </p>
+                          </div>
+                        </div>
+                        <motion.div animate={{ rotate: expandedScan === scan._id ? 180 : 0 }}>
+                          <svg className="w-6 h-6 text-[#19d5ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" /></svg>
                         </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                ))}
+                      </div>
+
+                      <AnimatePresence>
+                        {expandedScan === scan._id && (
+                          <motion.div 
+                            initial={{ height: 0, opacity: 0 }} 
+                            animate={{ height: "auto", opacity: 1 }} 
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.4 }}
+                            className="bg-[#06121f88] border-t border-[#19d5ff11] force-no-scroll"
+                          >
+                            <div className="p-8">
+                              {/* --- DYNAMIC TABLE RENDERING --- */}
+                              {isLocal ? (
+                                // TABLE FOR LOCAL SCANS
+                                <table className="w-full text-sm text-left">
+                                  <thead className="text-[#19d5ff] font-black text-[10px] tracking-[0.2em] border-b border-[#19d5ff22]">
+                                    <tr>
+                                      <th className="pb-4">HOST IDENTITY</th>
+                                      <th className="pb-4">IPV4 ADDRESS</th>
+                                      <th className="pb-4 text-right">MAC SIGNATURE</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {deviceList.map((dev, i) => (
+                                      <tr key={i} className="border-b border-[#ffffff03] last:border-0 hover:bg-[#19d5ff05]">
+                                        <td className="py-4 text-gray-300 font-semibold">{dev.name || "Unknown"}</td>
+                                        <td className="py-4 font-mono text-[#19d5ff]">{dev.ip || "-"}</td>
+                                        <td className="py-4 font-mono text-right text-gray-500">{dev.mac || "-"}</td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              ) : (
+                                // TABLE FOR ETHERNET SCANS (Matches your schema)
+                                <table className="w-full text-sm text-left">
+                                  <thead className="text-[#19d5ff] font-black text-[10px] tracking-[0.2em] border-b border-[#19d5ff22]">
+                                    <tr>
+                                      <th className="pb-4">NODE ID / IP</th>
+                                      <th className="pb-4">LOGICAL ROLE</th>
+                                      <th className="pb-4">MAC SIGNATURE</th>
+                                      <th className="pb-4 text-right">STATUS</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {deviceList.map((node, i) => (
+                                      <tr key={i} className="border-b border-[#ffffff03] last:border-0 hover:bg-[#19d5ff05]">
+                                        <td className="py-4 text-gray-300 font-mono font-semibold">{node.id || "Unknown"}</td>
+                                        <td className="py-4 text-gray-500 uppercase text-xs font-bold">{node.role || "End Device"}</td>
+                                        <td className="py-4 font-mono text-gray-400">{node.mac_address || "-"}</td>
+                                        <td className="py-4 text-right">
+                                          <span className={`text-[9px] font-black uppercase italic px-2 py-1 rounded border ${node.status === 'online' ? 'text-[#2ca02c] border-[#2ca02c44]' : 'text-gray-600 border-gray-800'}`}>
+                                              {node.status || "Unknown"}
+                                          </span>
+                                        </td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              )}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  )
+                })}
               </div>
             </motion.div>
           )}
