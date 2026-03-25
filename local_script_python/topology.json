@@ -14,20 +14,6 @@
             "id": "192.168.0.1"
         },
         {
-            "discovered_by": "arp",
-            "connection_type": "ethernet",
-            "mac_address": "b0:22:7a:89:dc:b3",
-            "status": "online",
-            "id": "192.168.0.103"
-        },
-        {
-            "discovered_by": "arp",
-            "connection_type": "ethernet",
-            "mac_address": "b0:22:7a:89:dc:b3",
-            "status": "online",
-            "id": "192.168.0.104"
-        },
-        {
             "role": "implicit-l2",
             "discovered_by": "inference",
             "status": "online",
@@ -38,16 +24,6 @@
         {
             "relation": "uplink",
             "source": "192.168.0.1",
-            "target": "L2_SWITCH_AP"
-        },
-        {
-            "relation": "logical-L2",
-            "source": "192.168.0.103",
-            "target": "L2_SWITCH_AP"
-        },
-        {
-            "relation": "logical-L2",
-            "source": "192.168.0.104",
             "target": "L2_SWITCH_AP"
         }
     ]

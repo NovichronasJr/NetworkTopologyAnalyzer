@@ -10,6 +10,8 @@ const multer = require('multer');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const nodemailer = require('nodemailer');
+require('dotenv').config()
 
 const PORT = 8003;
 
@@ -38,8 +40,8 @@ app.use(cors({
     credentials: true,               // 2. Allows cookies to be sent
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }))
-app.use(express.json());
-app.use(express.urlencoded({extended:true}))
+app.use(express.json({limit:'50mb'}));
+app.use(express.urlencoded({limit:'50mb',extended:true}))
 app.use('/uploads', express.static('uploads'));
 
 app.get('/',(req,res)=>{
@@ -437,6 +439,96 @@ app.delete('/api/notes/:noteId', async (req, res) => {
 });
 
 
+// report mailing //
+
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true, // true for port 465 (strict SSL)
+  auth: {
+    user: "emperorthunder80@gmail.com",
+    pass:  process.env.NODEMAILER_AUTH_PASS// <-- Replace with your exact 16-letter App Password (NO SPACES!)
+  },
+});
+
+// 3. VERIFY CONNECTION ON STARTUP (From Docs)
+transporter.verify(function (error, success) {
+  if (error) {
+    console.error("❌ Transporter Verification Failed (Check App Password!):", error.message);
+  } else {
+    console.log("✅ Nodemailer Server is ready to take our messages");
+  }
+});
+
+// 4. THE EMAIL ROUTE
+app.post('/api/send-report', async (req, res) => {
+    const { pdfBase64, email } = req.body;
+
+    if (!pdfBase64 || !email) {
+        return res.status(400).json({ success: false, message: "Missing email or PDF data" });
+    }
+
+    try {
+        // Strip the data URI prefix
+        const base64Data = pdfBase64.split("base64,")[1];
+
+        // --- PROFESSIONAL HTML EMAIL TEMPLATE ---
+        const htmlContent = `
+            <div style="font-family: 'Courier New', Courier, monospace; color: #e5e7eb; max-width: 600px; margin: 0 auto; background-color: #06121f; border: 1px solid #19d5ff33; border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <h2 style="color: #19d5ff; font-style: italic; text-transform: uppercase; margin-bottom: 5px; font-size: 24px; letter-spacing: 2px;">Command Center NOC</h2>
+                    <p style="color: #9ca3af; font-weight: bold; text-transform: uppercase; font-size: 11px; letter-spacing: 3px; margin-top: 0;">Automated Intelligence Dispatch</p>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #19d5ff22; margin: 20px 0;">
+                
+                <p style="font-size: 14px; line-height: 1.6;">Attention Analyst,</p>
+                <p style="font-size: 14px; line-height: 1.6;">The requested <strong>Ethernet Infrastructure & Topology Baseline Report</strong> has been successfully compiled and is securely attached to this transmission.</p>
+                
+                <div style="background-color: #0a1628; border-left: 3px solid #10b981; padding: 15px; margin: 25px 0; border-radius: 4px;">
+                    <p style="margin: 0; font-size: 12px; color: #9ca3af; text-transform: uppercase; letter-spacing: 1px;">Dispatch Status</p>
+                    <p style="margin: 5px 0 0 0; color: #10b981; font-weight: bold; font-size: 16px;">ENCRYPTED & SYNCED</p>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #19d5ff22; margin: 20px 0;">
+                
+                <p style="font-size: 10px; color: #6b7280; text-align: center; margin-top: 30px; text-transform: uppercase; letter-spacing: 1px;">
+                    This is an automated payload from the EtherScan Network Module.<br>Do not reply directly to this address.
+                </p>
+            </div>
+        `;
+
+        // 5. SEND MESSAGE (From Docs)
+        const info = await transporter.sendMail({
+            from: '"NOC Automated Dispatch" <emperorthunder80@gmail.com>', // Sender address
+            to: email, // List of recipients
+            subject: 'CLASSIFIED: NOC Ethernet Infrastructure Report', // Subject line
+            text: 'Please find your requested Ethernet Infrastructure and Topology Report attached.', // Plain text fallback
+            html: htmlContent, // HTML body
+            attachments: [
+                {
+                    filename: `NOC_Baseline_Report_${new Date().toISOString().slice(0,10)}.pdf`,
+                    content: base64Data,
+                    encoding: 'base64'
+                }
+            ]
+        });
+
+        console.log("✅ Message sent successfully! ID: %s", info.messageId);
+        return res.status(200).json({ success: true, message: "Report sent successfully" });
+
+    } catch (err) {
+        // 6. ERROR HANDLING (From Docs)
+        console.error("❌ Send failed:", err.message);
+        
+        if (err.code === 'EAUTH') {
+            return res.status(500).json({ success: false, message: "Backend Authentication Failed (Check App Password)" });
+        }
+        
+        return res.status(500).json({ success: false, message: err.message });
+    }
+});
 app.listen(PORT,()=>{
     console.log(`backend is listening at :: http://localhost:${PORT}`);
 })
